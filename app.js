@@ -14,7 +14,11 @@ const protect = require("./middleware/protect");
 const upload =require("./middleware/upload")
 const verifyUser = require("./middleware/verifyUser");
 const app = express();
-app.use(cors());
+app.use(cors(
+  { 
+    origin : ['http://localhost:3000'], 
+  }
+));
 app.use(express.json());
 // data sanitization against noSQL query injection
 app.use(mongoSanitize());
